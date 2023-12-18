@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="assets/menu.js"></script>
+    <title>Hello, world!</title>
+    <style>
+        .active {
+  /* Define the style for the active menu item */
+  /* For example: */
+  font-weight: bold;
+  color: blue;
+}
+
+section{
+    height: 1000px;
+    width: 100%;
+}
+    </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+  <body>
+
+    <nav>
+        <ul>
+          <li><a href="#section1">Section 1</a></li>
+          <li><a href="#section2">Section 2</a></li>
+          <li><a href="#section3">Section 3</a></li>
+          <!-- Add more list items for your menu -->
+        </ul>
+      </nav>
+      
+      <section id="section1">Section 1 Content</section>
+      <section id="section2">Section 2 Content</section>
+      <section id="section3">Section 3 Content</section>
+
+
+      <script>
+        $(document).ready(function() {
+    $(window).on('scroll', function() {
+      var scrollPosition = $(document).scrollTop();
+  
+      $('section').each(function() {
+        var currentSection = $(this);
+        var sectionTop = currentSection.offset().top;
+        var sectionBottom = sectionTop + currentSection.outerHeight();
+  
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          var id = currentSection.attr('id');
+          $('nav a').removeClass('active');
+          $('nav a[href="#' + id + '"]').addClass('active');
+        }
+      });
+    });
+  });
+      </script>
+
+</body>
+
+
+</html>
